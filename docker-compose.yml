@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  frontend:
+    #Dockerfile의 경로 설정
+    build: ./frontend
+    #front 실행을 위한 명령어 실행
+    command: ["npm", "start"]
+    ports:
+    #호스트 포트 : 컨테이너 포드
+      - 3000:3000
+    networks:
+      - our-net
+    # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리(작업공간 app으로 설정해줌 -> frontend/Dockerfile)
+    volumes:
+      - ./frontend:/app
+
+  backend:
+    build: ./backend
+    ports:
+      - 8080:8080
+    networks:
+      - our-net
+
+networks:
+  our-net:
+    driver: bridge
