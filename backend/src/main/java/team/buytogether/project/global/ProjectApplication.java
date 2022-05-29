@@ -1,4 +1,4 @@
-package team.buytogether.project;
+package team.buytogether.project.global;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
